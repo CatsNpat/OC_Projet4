@@ -121,13 +121,72 @@ body {
 	padding-bottom: 100%;
 
 }
+
+.boutonFiltre {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 2em;
+}
+
+.boutonFiltre button {
+	border : none;
+	background-color: #FFFFFF;
+	padding: 0.5em 1em;
+}
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+
+}
 .gallery-item {
-	position: absolute;
-	width: 100%;
-	height: 100%;
+	height: 25em;
+	width: 25em;
 	object-fit: cover;
 	padding: .5em;
 }
+
+.boiteTout{
+	position: relative;
+	border: solid 10px;
+	border-color: #FFFFFF;
+	padding: 0em;
+
+}
+
+.modalCSS {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.butPrev, .butNext {
+	width: 30px;
+	height: 30px;
+	background-color: #FFFFFF;
+	border: none;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	font-size: 24px;
+}
+
+.butNext {
+	position: absolute;
+	top: 50%;
+	right: -30px;
+}
+.butPrev {
+	position: absolute;
+	top: 50%;
+  	left: -30px;
+}
+
 .mg-prev, .mg-next {
 	width: 30px;
 	height: 30px;
@@ -266,6 +325,10 @@ input[type="submit"] {
 ::marker {
     color: #FFFFFF;
 }
+
+/* .nav-link.active-tag {
+	background-color: #ff5733;
+} */
 
 @media all and (max-width: 1180px) {
 	.picture {
