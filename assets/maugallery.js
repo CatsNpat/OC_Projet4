@@ -308,6 +308,7 @@ function generer(affiche) {
       const imageElement = document.createElement("img");
       imageElement.src = affiche[i].url;
       imageElement.setAttribute ("alt", affiche[i].alt);
+      imageElement.setAttribute ("title", affiche[i].title);
       imageElement.classList.add("gallery-item");
       imageElement.id = affiche[i].id;
   
@@ -327,6 +328,8 @@ const choixfiltre = placeBtnFiltre.querySelectorAll("button");
           if (choixfiltre[j].classList.contains("active")) {
             return;
           }else{
+            affichagePhoto.classList.remove("gallery-actif");
+            
             const imagesProjet = affichagePhoto.querySelectorAll("img");
             for (let i=0; i<imagesProjet.length; i++){
               const categorid = imagesProjet[i].id;
@@ -338,6 +341,7 @@ const choixfiltre = placeBtnFiltre.querySelectorAll("button");
             }
 
             couleurBouton(choixfiltre[j])
+            affichagePhoto.classList.add("gallery-actif");
         }})
     }
 
