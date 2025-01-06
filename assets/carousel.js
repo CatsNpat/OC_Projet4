@@ -15,6 +15,26 @@ function affichageImgCarousel(affiche) {
   }
 
   affichageImgCarousel(imgCarousel);
+
+    const boutonCarousel = document.getElementById("carousel-control");
+    const buttonPrev = document.createElement("button");
+    buttonPrev.classList.add("fa-solid");
+    buttonPrev.classList.add("fa-chevron-left");
+    buttonPrev.id = "prev";
+    buttonPrev.setAttribute('aria-hidden', false);
+    buttonPrev.setAttribute('aria-label', "Previous");
+
+    boutonCarousel.appendChild(buttonPrev);
+
+    const buttonNext = document.createElement("button");
+    buttonNext.classList.add("fa-solid");
+    buttonNext.classList.add("fa-chevron-right");
+    buttonNext.id = "next";
+    buttonNext.setAttribute('aria-hidden', false);
+    buttonNext.setAttribute('aria-label', "Next");
+
+    boutonCarousel.appendChild(buttonNext);
+
     // Déclare la constante pour la durée de chaque slide
     const slideTimeout = 5000;
 

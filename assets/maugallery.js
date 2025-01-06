@@ -270,16 +270,20 @@ function genererbtnfiltre(affiche) {
   placeBtnFiltre.innerHTML="";
   const btnfilterT = document.createElement("button");
   btnfilterT.innerText = `Tous`;
+  btnfilterT.setAttribute('arial-label', "Tous");
   btnfilterT.id = 0;
   btnfilterT.className = "active";
   btnfilterT.style.backgroundColor = "#BEB45A";
-  btnfilterT.style.color = "#FFFFFF";
+  btnfilterT.style.color = "#000000";
+  btnfilterT.style.fontSize = "1.1em";
   placeBtnFiltre.appendChild(btnfilterT);
 
   for (let i = 0; i < affiche.length; i++) {
       const creaElement = document.createElement("button");
       creaElement.id = affiche[i].id;
       creaElement.innerText = affiche[i].title;
+      creaElement.setAttribute('aria-label', [affiche[i].id]);
+      creaElement.style.fontSize = "1.1em";
 
       placeBtnFiltre.appendChild(creaElement);
   }
@@ -291,7 +295,7 @@ function couleurBouton (pressbouton) {
   for (let i=0; i<boutons.length; i++){
       if (boutons[i].innerText === pressbouton.innerText){
           boutons[i].style.backgroundColor = "#BEB45A";
-          boutons[i].style.color = "#FFFFFF";
+          boutons[i].style.color = "#000000";
           boutons[i].className ="active";
       }else{
           boutons[i].style.backgroundColor = "#FFFFFF";
@@ -306,9 +310,10 @@ function generer(affiche) {
   affichagePhoto.innerHTML="";
   for (let i = 0; i < affiche.length; i++) {
       const imageElement = document.createElement("img");
-      imageElement.src = affiche[i].url;
+      imageElement.src = affiche[i].url2;
       imageElement.setAttribute ("alt", affiche[i].alt);
       imageElement.setAttribute ("title", affiche[i].title);
+      imageElement.dataset['original']= affiche[i].url;
       imageElement.classList.add("gallery-item");
       imageElement.id = affiche[i].id;
   
@@ -349,29 +354,52 @@ const choixfiltre = placeBtnFiltre.querySelectorAll("button");
 
 function modalUp(genmodal) {
   const imgModal = document.getElementById("modalImg");
+  imgModal.removeAttribute('aria-hidden');
+
   const boiteTout = document.createElement("div");
+
   const butPrev = document.createElement("button");
-  butPrev.innerText = "<";
+  butPrev.classList.add("fa-solid");
+  butPrev.classList.add("fa-chevron-left");
   butPrev.classList.add("butPrev");
+  butPrev.setAttribute('aria-hidden',false);
+  butPrev.setAttribute('aria-label', "Previous");
   boiteTout.appendChild(butPrev);
+
   const butNext = document.createElement("button");
-  butNext.innerText = ">";
+  butNext.classList.add("fa-solid");
+  butNext.classList.add("fa-chevron-right");
   butNext.classList.add("butNext");
+  butNext.setAttribute('aria-hidden',false);
+  butNext.setAttribute('aria-label', "Next");
   boiteTout.appendChild(butNext);
+
   boiteTout.classList.add("boiteTout");
   imgModal.appendChild(boiteTout);
   const imagemodal = document.createElement("img");
-  imagemodal.src = genmodal.src;
+  imagemodal.src = genmodal.dataset['original'];
+  imagemodal.dataset['original'] = genmodal.dataset['original'];
   boiteTout.appendChild(imagemodal);
   imgModal.style.display = "flex";
   const choixFiltree = placeBtnFiltre.querySelector("button[class='active']");
+
 
   document.getElementById("modalImg").addEventListener("click",(event) => {
     if (event.target === document.getElementById("modalImg")){
     const mld = document.querySelector("#modalImg");
     mld.style.display = "none";
+    mld.setAttribute('aria-hidden', true);
     imgModal.innerHTML ="";
   }})
+
+  window.addEventListener("keydown",(event) => {
+    if(event.key === "Escape" || event.key === "Esc"){
+    const mld = document.querySelector("#modalImg");
+    mld.style.display = "none";
+    mld.setAttribute('aria-hidden', true);
+    imgModal.innerHTML ="";
+    }
+  })
 
   let tablImgChoix = []
   if(choixFiltree.id==="0"){
@@ -383,15 +411,17 @@ function modalUp(genmodal) {
   butPrev.addEventListener("click", () =>{
     let index = 0;
     for(let m=0; m<tablImgChoix.length; m++){
-      if (tablImgChoix[m].src === imagemodal.src){
+      if (tablImgChoix[m].dataset['original'] === imagemodal.dataset['original']){
         index = m;
         break;
       }
     }
     if (index === 0){
-      imagemodal.src = tablImgChoix[index].src;
+      imagemodal.src = tablImgChoix[index].dataset['original'];
+      imagemodal.dataset['original'] = tablImgChoix[index].dataset['original'];
     }else{
-      imagemodal.src = tablImgChoix[index-1].src;
+      imagemodal.src = tablImgChoix[index-1].dataset['original'];
+      imagemodal.dataset['original'] = tablImgChoix[index-1].dataset['original'];
     }
 
   })
@@ -399,15 +429,17 @@ function modalUp(genmodal) {
   butNext.addEventListener("click", () =>{
     let index = 0;
     for(let m=0; m<tablImgChoix.length; m++){
-      if (tablImgChoix[m].src === imagemodal.src){
+      if (tablImgChoix[m].dataset['original'] === imagemodal.dataset['original']){
         index = m;
         break;
       }
     }
     if (index === tablImgChoix.length-1){
-      imagemodal.src = tablImgChoix[index].src;
+      imagemodal.src = tablImgChoix[index].dataset['original'];
+      imagemodal.dataset['original'] = tablImgChoix[index].dataset['original'];
     }else{
-      imagemodal.src = tablImgChoix[index+1].src;
+      imagemodal.src = tablImgChoix[index+1].dataset['original'];
+      imagemodal.dataset['original'] = tablImgChoix[index+1].dataset['original'];
     }
 
   })
