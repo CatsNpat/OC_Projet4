@@ -461,6 +461,7 @@ input[type="submit"] {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	padding: 0em 1em 0em 1em;
 }
 
 .footer-bloc p {
@@ -527,6 +528,19 @@ input[type="submit"] {
 	#about{
 		flex-direction: column;
 
+	}
+
+	.carousel {
+		height: 25em;
+	}
+	.carousel-inner {
+		height: 25em;
+	}
+	.carousel-control {
+		top: 45%;
+	}
+	.carousel-dots {
+		left: 20%;
 	}
 
 	.picture.left::before {
