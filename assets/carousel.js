@@ -1,5 +1,5 @@
-
-const placeImgCarousel = document.querySelector(".carousel-inner");
+//PARTIE CREATION HTML DU CAROUSEL
+const placeImgCarousel = document.querySelector(".carousel-inner"); /* fonction affichage des photos du carousel*/
 function affichageImgCarousel(affiche) {
     placeImgCarousel.innerHTML="";
     for (let i = 0; i < affiche.length; i++) {
@@ -14,45 +14,47 @@ function affichageImgCarousel(affiche) {
     }
   }
 
-  affichageImgCarousel(imgCarousel);
+  affichageImgCarousel(imgCarousel); 
 
-    const boutonCarousel = document.getElementById("carousel-control");
-    const buttonPrev = document.createElement("button");
-    buttonPrev.classList.add("fa-solid");
-    buttonPrev.classList.add("fa-chevron-left");
-    buttonPrev.id = "prev";
-    buttonPrev.setAttribute('aria-hidden', false);
-    buttonPrev.setAttribute('aria-label', "Previous");
+const boutonCarousel = document.getElementById("carousel-control"); /*création bouton-chevron gauche*/
+const buttonPrev = document.createElement("button");
+buttonPrev.classList.add("fa-solid");
+buttonPrev.classList.add("fa-chevron-left");
+buttonPrev.id = "prev";
+buttonPrev.setAttribute('aria-hidden', false);
+buttonPrev.setAttribute('aria-label', "Previous");
 
-    boutonCarousel.appendChild(buttonPrev);
+boutonCarousel.appendChild(buttonPrev);
 
-    const buttonNext = document.createElement("button");
-    buttonNext.classList.add("fa-solid");
-    buttonNext.classList.add("fa-chevron-right");
-    buttonNext.id = "next";
-    buttonNext.setAttribute('aria-hidden', false);
-    buttonNext.setAttribute('aria-label', "Next");
+const buttonNext = document.createElement("button"); /*création bouton-chevron droite*/
+buttonNext.classList.add("fa-solid");
+buttonNext.classList.add("fa-chevron-right");
+buttonNext.id = "next";
+buttonNext.setAttribute('aria-hidden', false);
+buttonNext.setAttribute('aria-label', "Next");
 
-    boutonCarousel.appendChild(buttonNext);
+boutonCarousel.appendChild(buttonNext);
+
+//PARTIE FONCTIONNEMENT DU CAROUSEL
 
     // Déclare la constante pour la durée de chaque slide
-    const slideTimeout = 5000;
+const slideTimeout = 5000;
 
     // Récupère les boutons de navigation
-    const prev = document.getElementById("prev");
-    const next = document.getElementById("next");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
 
     // Récupère tous les éléments de type "slide"
-    const TtesImgCarousel = document.querySelectorAll('.slide');
+const TtesImgCarousel = document.querySelectorAll('.slide');
 
     // Initialisation de la variable pour les "dots"
-    let pointsCarousel;
+let pointsCarousel;
 
     // Initialisation de la variable pour l'intervalle d'affichage des slides
-    let intervalId;
+let intervalId;
 
     // Initialisation du slide courant à 1
-    let imgActive = 0;
+let imgActive = 0;
 
     // Fonction pour afficher un slide spécifique en utilisant un index
     function imgChoisie(index) {

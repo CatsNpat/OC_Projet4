@@ -98,6 +98,7 @@ h3 {
 	border: none;
 	font-size: 2em;
 	color: #FFFFFF;
+	cursor: pointer;
 }
 
 .carousel-dots {
@@ -193,7 +194,7 @@ h3 {
 .gallery .nav {
 	justify-content: center;
 }
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+/* .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
 	color: #fff;
 	background-color: #BEB45A;
 	border-radius:0 ;
@@ -211,7 +212,7 @@ h3 {
 	display: block;
 	padding-bottom: 100%;
 
-}
+} */
 
 .container-gallery {
 	display: flex;
@@ -231,6 +232,7 @@ h3 {
 	border : none;
 	background-color: #FFFFFF;
 	padding: 0.5em 1em;
+	cursor: pointer;
 }
 .gallery {
 	display: flex;
@@ -305,11 +307,13 @@ h3 {
 	position: absolute;
 	top: 50%;
 	right: -1.875em;
+	cursor: pointer;
 }
 .butPrev {
 	position: absolute;
 	top: 50%;
   	left: -1.875em;
+	cursor: pointer;
 }
 
 .quote {
@@ -349,9 +353,6 @@ h3 {
 	position: relative;
 }
 
-.service__description p{
-	/* text-align: ; */
-}
 
 .price {
 	font-weight: normal;
@@ -481,9 +482,6 @@ input[type="submit"] {
     color: #FFFFFF;
 }
 
-/* .nav-link.active-tag {
-	background-color: #ff5733;
-} */
 
 @media all and (max-width: 1180px) {
 	.picture {
