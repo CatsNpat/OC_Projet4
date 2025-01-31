@@ -1,0 +1,35 @@
+sémantique de la page html :
+-ajout balise <lang>
+-ajout balise <title>
+-ajout meta "description"
+-ajout meta "réseaux sociaux"
+-ajout link "font awesome" pour les chevrons
+-organisation des balises <hn>
+-modification de certaines balises <hn> par des <p>
+-meilleure agencement du contenu des balises <blockquote>
+-ajout balise <aside> pour l'ajout de la modale
+-remplacement des balises <div> par des <section> selon les sujets abordés
+-ajout des balises <header> et <footer>
+-ajout de richsneept via schema.org
+
+performance web :
+-modif. des tailles des img
+-modif de l'extension des img en webp
+-la partie gallerie de la page d'accueil affiche des photos miniatures
+-la modale affiche des photos en taille réelles
+-suppression du JQuery
+-rempplacement en Js pour le carousel, génération de la galerie photos, de la modale
+-suppression du bootstrap
+-déplacement des balises <link> js en fin de page html
+
+accessibilité :
+-organisation sémantique de la page html
+-ajout de <label> aux balises <input> du formulaire
+-ajout de description de l'atribut alt pour chaque img
+-ajout de langage ARIA + <label> ARIA pour les chevrons, les éléments de la modale
+-modification des couleurs de l'écriture et fond des boutons filtres de la gallerie
+
+SEO :
+-ajout des balises <meta>
+-ajout d'un titre
+-ajout de référencement de localisation
